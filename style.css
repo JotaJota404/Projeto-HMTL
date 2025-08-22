@@ -1,111 +1,119 @@
 /* style.css */
 
-/* Definições gerais para o corpo da página */
-body {
-    background-color: #1a1a2e; /* Roxo meia-noite bem escuro */
-    color: #e0e0e0; /* Cor de texto quase branca para contraste */
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+/* Variáveis de Cor para fácil manutenção do tema */
+:root {
+    --primary-bg: #1a1a2e;      /* Roxo meia-noite bem escuro */
+    --secondary-bg: #16213e;    /* Tom de roxo/azul mais escuro */
+    --accent-color: #7f5af0;     /* Roxo vibrante para destaque */
+    --text-color: #e0e0e0;       /* Cor de texto quase branca */
+    --light-text-color: #ffffff; /* Branco puro */
 }
 
-/* Container principal para alinhar o conteúdo */
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    padding: 20px 0;
+/* Reset básico e box-sizing para um layout mais previsível */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Definições gerais para o corpo da página */
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
 
 /* Estilo do Cabeçalho e Navegação */
 header {
-    background-color: #16213e; /* Tom de roxo/azul mais escuro */
+    background-color: var(--secondary-bg);
     padding: 20px 0;
-    border-bottom: 3px solid #7f5af0; /* Roxo vibrante para destaque */
+    border-bottom: 3px solid var(--accent-color);
     text-align: center;
 }
 
-header nav menu {
-    padding: 0;
-    margin: 0;
+/* ATUALIZADO: Seletor de 'menu' para 'ul' para corresponder ao HTML semântico */
+header nav ul {
     list-style: none;
 }
 
-header nav menu li {
+header nav ul li {
     display: inline-block;
     margin: 0 15px;
 }
 
-header nav menu li a {
-    color: #ffffff;
+header nav ul li a {
+    color: var(--light-text-color);
     text-decoration: none;
     font-size: 18px;
     padding: 5px 10px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-header nav menu li a:hover {
-    background-color: #7f5af0; /* Destaque ao passar o mouse */
+header nav ul li a:hover {
+    background-color: var(--accent-color);
 }
 
-/* Layout principal com conteúdo e barra lateral */
-.content-wrapper {
-    display: flex;
-    margin-top: 20px;
-}
-
+/* Estilo do conteúdo principal para um layout de showroom */
 main {
-    flex: 3; /* Ocupa 3/4 do espaço */
-    padding-right: 20px;
-}
-
-aside {
-    flex: 1; /* Ocupa 1/4 do espaço */
-    background-color: #16213e;
-    padding: 15px;
+    max-width: 900px; /* Define uma largura máxima para o conteúdo */
+    margin: 40px auto; /* Centraliza o bloco na página e adiciona espaço vertical */
+    padding: 30px;
+    background-color: var(--secondary-bg); /* Fundo sutil para destacar a área de conteúdo */
     border-radius: 8px;
+    border: 1px solid var(--accent-color);
 }
 
-aside h3 {
-    color: #7f5af0;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 10px;
+/* Estilo para a imagem de destaque e outros elementos dentro do main */
+main figure {
+    margin: 30px 0; /* Adiciona um espaço vertical antes e depois da imagem */
 }
 
-aside ol {
-    padding-left: 20px;
+main img {
+    /* A imagem ocupará 80% da largura do container, criando um respiro visual. */
+    /* O 'max-width' garante que ela continue responsiva em telas menores. */
+    max-width: 80%;
+    height: auto;
+    display: block; /* Remove espaços extras que podem aparecer abaixo da imagem */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px; /* Bordas arredondadas para um visual suave */
+    border: 2px solid var(--accent-color); /* Borda sutil com a cor de destaque do site */
 }
 
-aside ol li {
-    margin-bottom: 10px;
+main figcaption {
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 0.9em;
+    color: #a9a9a9; /* Um cinza claro para a legenda não roubar a atenção */
 }
 
 /* Estilo da Tabela */
 table {
     width: 100%;
     margin-top: 20px;
-    border-collapse: collapse; /* Remove espaço entre bordas */
+    border-collapse: collapse;
 }
 
 th, td {
-    border: 1px solid #7f5af0;
+    border: 1px solid var(--accent-color);
     padding: 12px;
     text-align: left;
 }
 
 th {
-    background-color: #7f5af0; /* Cabeçalho da tabela com destaque */
-    color: #ffffff;
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
 }
 
 /* Estilo do Rodapé */
 footer {
-    background-color: #16213e;
+    background-color: var(--secondary-bg);
     text-align: center;
     padding: 20px;
     margin-top: 30px;
     font-size: 14px;
-    border-top: 3px solid #7f5af0;
+    border-top: 3px solid var(--accent-color);
 }
